@@ -6,7 +6,7 @@ type PageTitlePropsType = {
 
 const PageTitle = (props: PageTitlePropsType) => {
     return (
-        <h1>{props.title}</h1>
+        <h1 style={{margin: '10px 0'}}>{props.title}</h1>
     )
 }
 

@@ -9,10 +9,10 @@ type StarPropsType = {
     onDoubleClickCallback?: () => void
 }
 
-const Star = (props: StarPropsType) => {
+const Star:React.FC<StarPropsType> = ({selected,onClickCallback,onDoubleClickCallback}) => {
     return (
-        <span onClick={props.onClickCallback} onDoubleClick={props.onDoubleClickCallback}>
-            {props.selected
+        <span onClick={onClickCallback} onDoubleClick={onDoubleClickCallback}>
+            {selected
                 ? <img src={starGlows} className={s.star}/>
                 : <img src={starGray} className={s.star}/>
             }

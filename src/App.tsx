@@ -6,10 +6,11 @@ import OnOff from "./components/OnOff/OnOff";
 import UncontrolledOnOff from "./components/OnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
 import UncontrolledRating from "./components/Rating/UncontrolledRating";
+import s from './App.module.css'
 
 function App() {
   return (
-    <div className="App">
+    <div className={s.App}>
 
       <PageTitle title={'The Page Title'}/>
 {/*      <Accordion title={'Menu'} collapsed={true}/>
