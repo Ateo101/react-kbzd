@@ -17,8 +17,8 @@ const UncontrolledRating = () => {
     return (
         <div className={s.starContainer}>
             {possibleRating.map((v) => <Star selected={value > v - 1}
-                                             onClickCallback={onClickHandler(v)}
-                                             onDoubleClickCallback={onDoubleClickHandler}/>)}
+                                                     onClickCallback={onClickHandler(v)}
+                                                     onDoubleClickCallback={onDoubleClickHandler}/>)}
         </div>
     )
 
