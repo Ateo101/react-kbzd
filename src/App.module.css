@@ -1,0 +1,32 @@
+.indicatorBtn{
+    display: inline-block;
+    border: 1px solid black;
+    width: fit-content;
+    height: fit-content;
+    font-weight: bold;
+    padding: 2px;
+    margin: 2px;
+    cursor: pointer;
+}
+.on{
+    background-color: green;
+}
+.off{
+    background-color: red;
+}
+
+.led {
+    display: inline-block;
+    border: 1px solid black;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin-left: 5px;
+}
+span {
+    cursor: pointer;
+}
+.star{
+    width: 14px;
+    height: 14px;
+}
