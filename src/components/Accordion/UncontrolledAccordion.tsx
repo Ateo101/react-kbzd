@@ -1,46 +1,39 @@
 import {useState} from "react";
 
-type AccordionPropsType = {
-    title: string,
-}
-
 type AccordionTitlePropsType = {
-    title: string,
     onClickCallback: () => void,
 }
-
 function AccordionTitle(props: AccordionTitlePropsType) {
+
+    const title = 'Menu'
+
     return (
-        <button onClick={props.onClickCallback}> {props.title} </button>
+        <button onClick={props.onClickCallback}> {title} </button>
     )
 }
-
 function AccordionBody() {
+
+    const liValues = [1,2,3]
+
     return (
         <ul>
-            <li>
-                1
-            </li>
-            <li>
-                2
-            </li>
-            <li>
-                3
-            </li>
+            {liValues.map( v => <li> {v} </li> )}
         </ul>
     )
+
 }
 
-const UncontrolledAccordion = (props: AccordionPropsType) => {
+const UncontrolledAccordion = () => {
 
     const [collapsed, setCollapsed] = useState(false)
 
     return (
         <div>
-            <AccordionTitle title={props.title} onClickCallback={()=>setCollapsed(!collapsed)}/>
+            <AccordionTitle onClickCallback={()=>setCollapsed(!collapsed)}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
+
 }
 
 export default UncontrolledAccordion;

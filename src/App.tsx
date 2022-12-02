@@ -1,5 +1,4 @@
-import React from 'react';
-import PageTitle from "./PageTitle";
+import React, {useState} from 'react';
 import Accordion from "./components/Accordion/Accordion";
 import Rating from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
@@ -8,29 +7,31 @@ import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion"
 import UncontrolledRating from "./components/Rating/UncontrolledRating";
 import s from './App.module.css'
 
+export type ratingValueType = 0 | 1 | 2 | 3 | 4 | 5
+
 function App() {
-  return (
-    <div className={s.App}>
 
-      <PageTitle title={'The Page Title'}/>
-{/*      <Accordion title={'Menu'} collapsed={true}/>
-      <Accordion title={'Menu'} collapsed={false}/>*/}
-      <UncontrolledAccordion title={'Menu'}/>
+    const [ratingValue, setRatingValue] = useState<ratingValueType>(0)
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+    const [switcher, setSwitcher] = useState<boolean>(false)
 
-{/*      <Rating value={0}/>
-      <Rating value={1}/>
-      <Rating value={2}/>
-      <Rating value={3}/>
-      <Rating value={4}/>
-      <Rating value={5}/>*/}
+    return (
+        <div className={s.App}>
 
-      <UncontrolledRating/>
+            <h1 style={{margin: '10px 0'}}>The Page Title</h1>
 
-      {/*<OnOff isOn={true}/>*/}
-      <UncontrolledOnOff/>
+            <Accordion title={'Menu'} collapsed={collapsed} onClick={setCollapsed}/>
+            <UncontrolledAccordion/>
 
-    </div>
-  );
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <UncontrolledRating/>
+
+
+            <OnOff isOn={switcher} onClick={setSwitcher}/>
+            <UncontrolledOnOff/>
+
+        </div>
+    );
 }
 
 export default App;

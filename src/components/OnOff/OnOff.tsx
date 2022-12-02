@@ -2,24 +2,27 @@ import React from 'react';
 import s from '../../App.module.css'
 
 type OnOffPropsType = {
-    isOn: boolean;
+    isOn: boolean
+    onClick: (isOn: boolean) => void
 }
 
 const OnOff = (props: OnOffPropsType) => {
 
-
+    const onClickHandler = (isOn: boolean) => () => {
+        props.onClick(isOn)
+    }
 
     return (
         <div>
-            <div className={props.isOn ? s.on : ''}>
+            <button className={props.isOn ? s.indicatorBtn + ' ' + s.on : s.indicatorBtn}
+                    onClick={onClickHandler(true)}>
                 On
-            </div>
-            <div className={!props.isOn ? s.off : ''}>
+            </button>
+            <button className={!props.isOn ? s.indicatorBtn + ' ' + s.off : s.indicatorBtn}
+                    onClick={onClickHandler(false)}>
                 Off
-            </div>
-            <div className={props.isOn ? s.on : s.off}>
-                indicator
-            </div>
+            </button>
+            <div className={props.isOn ? s.on + ' ' + s.led : s.off + ' ' + s.led}></div>
         </div>
     )
 }
