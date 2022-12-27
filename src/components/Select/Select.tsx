@@ -50,7 +50,8 @@ const Select = (props: SelectPropsType) => {
             <b>{currItem}</b>
             <div>
                 {!collapsed && props.items.map((i, index) => <div key={index}
-                                                                  style={i === hoveredItem ? {fontWeight: 'bold'} : {}}
+                                                                  onMouseEnter={()=>setHoveredItem(i)}
+                                                                  style={i === hoveredItem ? {fontWeight: 'bold', cursor: 'pointer'} : {}}
                                                                   onClick={onClickSetCurrItem(i, index)}>{i}</div>)}
             </div>
         </div>
